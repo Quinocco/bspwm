@@ -1,0 +1,34 @@
+#!/bin/sh
+# ~/.config/bspwm/bspwmrc: bspwm config file
+
+################## SETTINGS ##################
+
+    bspc config automatic_scheme longest_side
+    bspc config initial_polarity second_child
+    bspc config pointer_action1  move
+    bspc config pointer_action2  resize_side
+    bspc config pointer_action3  resize_corner
+    bspc config pointer_modifier mod1
+    bspc config split_ratio      0.5
+
+    bspc rule -a conky              border=off
+    bspc rule -a libreoffice        state=tiled
+    bspc rule -a '*:libreofficedev' state=tiled
+    bspc rule -a '*:soffice'        state=tiled
+
+    bspc monitor -d I II III IV V VI VII VIII IX X
+
+################## STARTUP ###################
+
+    sxhkd -c ~/.config/bspwm/sxhkdrc &
+
+    compton -b
+    ~/.config/bspwm/decorations.sh desktop 1
+    ~/.config/bspwm/decorations.sh borders on
+    ~/.config/bspwm/decorations.sh gaps on
+    ~/.config/bspwm/decorations.sh conky on
+    xset -dpms &
+    xautolock -time 60 -locker blurlock &
+    dropbox &
+
+##################### EOF ####################

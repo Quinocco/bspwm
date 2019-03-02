@@ -1,0 +1,144 @@
+# ~/.config/bspwm/sxhkdrc: sxhkd config file
+# See http://wiki.linuxquestions.org/wiki/List_of_Keysyms_Recognised_by_Xmodmap
+
+################# LAUNCHERS ##################
+
+#### Dedicated keys ####
+Print
+	scrot
+XF86AudioRaiseVolume
+	volume up
+XF86AudioLowerVolume
+	volume down
+XF86AudioMute
+	volume mute
+
+#### Function keys ####
+F1
+	bspc node -s biggest.local; libreoffice ~/Dropbox/F/1-Dockets.ods &
+F2
+	bspc node -s biggest.local; libreoffice ~/Dropbox/F/2-Finances.ods &
+F3
+	bspc node -s biggest.local; firefox https://www.icloud.com/#contacts &
+F4
+	bspc node -s biggest.local; pcmanfm ~/Dropbox/LC/4a_Open &
+F5
+	bspc node -s biggest.local; urxvt -e fish -c khal_icloud_sync &
+F6
+	bspc node -s biggest.local; urxvt -e nnn ~/Dropbox/F/6-ToDo &
+F7
+	bspc node -s biggest.local; urxvt -e mutt &
+F8
+	
+F9
+	
+F10
+	
+F11
+	
+F12
+	
+alt + F1
+	bspc node -s biggest.local; bspc node -p east; mousepad ~/.config/bspwm/autostart &
+alt + F2
+	bspc node -s biggest.local; bspc node -p east; mousepad ~/.config/bspwm/bspwmrc &
+alt + F3
+	bspc node -s biggest.local; bspc node -p east; mousepad ~/.config/bspwm/sxhkdrc &
+alt + F4
+	bspc node -s biggest.local; bspc node -p east; mousepad ~/.config/bspwm/decorations.sh &
+alt + F5
+	bspc node -s biggest.local; bspc node -p east; mousepad ~/.config/conky/conky.keys.conf &
+alt + F6
+	bspc node -s biggest.local; bspc node -p east; mousepad ~/.config/conky/conky.main.conf &
+alt + F7
+	bspc node -s biggest.local; bspc node -p east; mousepad ~/.config/conky/conky.statusbar.conf &
+alt + F8
+	bspc node -s biggest.local; bspc node -p east; mousepad ~/.config/conky/conky.titlebar.conf &
+alt + F9
+	
+alt + F10
+	
+alt + F11
+	
+alt + F12
+	
+
+#### Applications ####
+alt + Return
+	urxvt
+alt + b
+	~/.config/bspwm/decorations.sh borders toggle
+alt + c
+	~/.config/bspwm/decorations.sh conky toggle
+alt + g
+	~/.config/bspwm/decorations.sh gaps toggle
+alt + f
+	pcmanfm
+alt + k
+	kodi
+alt + m
+	mame
+alt + s
+	steam
+alt + t
+	mousepad
+alt + w
+	firefox
+
+#### Menus ####
+alt + space
+	rofi -show run
+alt + super + space
+	rofi -show drun
+alt + ctrl + space
+	rofi -show window
+
+#### Focus window ####
+alt + {Down,Right,Left,Up}
+	bspc node -f {south,east,west,north}
+alt + Tab
+	bspc node -f next
+alt + backslash
+	bspc node -f biggest.local
+
+#### Swap window ####
+alt + super + {Down,Right,Left,Up}
+	bspc node -s {south,east,west,north}
+alt + super + backslash
+	bspc node -s biggest.local
+
+#### Resize window ####
+alt + ctrl + {Down,Right,Left,Up}
+	bspc node -z {bottom 0 16,right 16 0,left -16 0,top 0 -16}
+alt + ctrl + slash
+	bspc node @/ -B
+alt + ctrl + equal
+	bspc node @/ -E
+
+#### Tile direction ####
+alt + shift + {Down,Right,Left,Up}
+	bspc node -p {south,east,west,north}
+
+#### Go to workspace ####
+alt + {1-9,0}
+	~/.config/bspwm/decorations.sh desktop {1-9,10}
+
+#### Take window to workspace ####
+alt + super + {1-9,0}
+	bspc node -d \^{1-9,10}; ~/.config/bspwm/decorations.sh desktop {1-9,10}
+
+#### Kill ####
+alt + BackSpace
+	bspc node -c
+
+#### Exit ####
+alt + Escape
+	blurlock
+alt + super + Escape
+	bspc quit
+alt + ctrl + Escape
+	systemctl reboot
+alt + shift + Escape
+	systemctl poweroff
+
+##################### EOF ####################
